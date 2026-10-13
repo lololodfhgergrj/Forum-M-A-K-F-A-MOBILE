@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="google-site-verification" content="WC2AyDR54T_8D9VVEmxjYkb7gGe8DwFvnUsFmOreqAU" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M A K F A solum tu | Форум семьи | Server #81 Taganrog</title>
+    <style>
+        :root {
+            --xf-bg: #16171b;
+            --xf-header: #121317;
+            --xf-block-bg: #1d1e24;
+            --xf-block-header: #23252d;
+            --xf-block-hover: #262830;
+            --xf-accent: #ff6b00;
+            --xf-accent-hover: #ff852e;
+            --xf-accent-soft: rgba(255, 107, 0, 0.12);
+            --xf-text: #e4e6eb;
+            --xf-text-muted: #9a9ba3;
+            --xf-border: #2a2c35;
+            --server-badge: #e67e22;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--xf-bg);
+            background-image: radial-gradient(circle at 15% 0%, rgba(255, 107, 0, 0.06), transparent 40%),
+                               radial-gradient(circle at 85% 10%, rgba(255, 107, 0, 0.04), transparent 35%);
+            color: var(--xf-text);
+            line-height: 1.6;
+        }
+
+        /* Шапка форума */
+        header {
+            background: linear-gradient(180deg, var(--xf-header), #17181d);
+            border-bottom: 3px solid var(--xf-accent);
+            padding: 16px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.55);
+            position: relative;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .server-badge {
+            background: linear-gradient(135deg, var(--server-badge), #c9640f);
+            color: #fff;
+            padding: 4px 11px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 6px rgba(230, 126, 34, 0.35);
+        }
+
+        .logo-title h1 {
+            font-size: 21px;
+            color: #fff;
+            letter-spacing: 1px;
+            text-shadow: 0 0 18px rgba(255, 107, 0, 0.35);
+        }
+
+        .logo-title span {
+            font-size: 12px;
+            color: var(--xf-text-muted);
+        }
+
+        .server-status {
+            font-size: 13px;
+            color: var(--xf-text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-dot-live {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #2ecc71;
+            box-shadow: 0 0 6px #2ecc71;
+            animation: pulseDot 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        /* Навигация */
+        .forum-nav {
+            background-color: #18191e;
+            padding: 12px 30px;
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid var(--xf-border);
+            font-size: 13px;
+            color: var(--xf-text-muted);
+            flex-wrap: wrap;
+        }
+
+        .forum-nav a {
+            color: var(--xf-accent);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .forum-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== Баннер семьи ===== */
+        .family-hero {
+            max-width: 1200px;
+            margin: 25px auto 0;
+            padding: 0 15px;
+        }
+
+        .family-hero-inner {
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.14), rgba(29, 30, 36, 0.95));
+            border: 1px solid var(--xf-border);
+            border-radius: 8px;
+            padding: 22px 26px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+
+        .family-hero-text h2 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .family-hero-text p {
+            color: var(--xf-text-muted);
+            font-size: 13px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            background-color: rgba(20, 21, 25, 0.8);
+            border: 1px solid var(--xf-border);
+            border-radius: 6px;
+            padding: 8px 14px;
+            text-align: center;
+            min-width: 86px;
+        }
+
+        .hero-stat b {
+            display: block;
+            color: var(--xf-accent);
+            font-size: 16px;
+        }
+
+        .hero-stat span {
+            font-size: 10px;
+            color: var(--xf-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        /* Контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 25px;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Категория и темы */
+        .forum-category {
+            background-color: var(--xf-block-bg);
+            border: 1px solid var(--xf-border);
+            border-radius: 6px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+        }
+
+        .category-header {
+            background: linear-gradient(90deg, var(--xf-block-header), #1f2027);
+            padding: 12px 20px;
+            font-weight: bold;
+            font-size: 15px;
+            border-bottom: 1px solid var(--xf-border);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .thread-item {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--xf-border);
+            border-left: 3px solid transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s, padding-left 0.15s;
+        }
+
+        .thread-item:last-child {
+            border-bottom: none;
+        }
+
+        .thread-item:hover {
+            background-color: var(--xf-block-hover);
+            border-left-color: var(--xf-accent);
+            padding-left: 24px;
+        }
+
+        .thread-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .thread-meta {
+            font-size: 12px;
+            color: var(--xf-text-muted);
+        }
+
+        .thread-stats {
+            text-align: right;
+            font-size: 12px;
+            color: var(--xf-text-muted);
+            white-space: nowrap;
+        }
+
+        .tag {
+            background-color: rgba(255, 107, 0, 0.15);
+            color: var(--xf-accent);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .tag-important { background-color: rgba(230, 126, 34, 0.2); color: #e67e22; }
+        .tag-info { background-color: rgba(52, 152, 219, 0.2); color: #3498db; }
+        .tag-danger { background-color: rgba(231, 76, 60, 0.2); color: #e74c3c; }
+        .tag-money { background-color: rgba(46, 204, 113, 0.2); color: #2ecc71; }
+
+        /* Просмотр внутри темы */
+        .thread-view {
+            display: none;
+            background-color: var(--xf-block-bg);
+            border: 1px solid var(--xf-border);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+        }
+
+        .post-header {
+            background: linear-gradient(90deg, var(--xf-block-header), #1f2027);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--xf-border);
+        }
+
+        .post-header h2 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .post-body {
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .post-author {
+            width: 140px;
+            text-align: center;
+            border-right: 1px solid var(--xf-border);
+            padding-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background-color: #252830;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--xf-accent);
+            border: 2px solid var(--xf-accent);
+            box-shadow: 0 0 14px rgba(255, 107, 0, 0.25);
+        }
+
+        .author-name {
+            font-size: 13px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .author-role {
+            font-size: 11px;
+            color: var(--xf-accent);
+            margin-top: 2px;
+        }
+
+        .post-content { flex: 1; min-width: 0; }
+
+        .auto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .auto-card {
+            background-color: var(--xf-header);
+            border: 1px solid var(--xf-border);
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+            transition: border-color 0.15s, transform 0.15s;
+        }
+
+        .auto-card:hover { border-color: var(--xf-accent); transform: translateY(-2px); }
+
+        .form-group { margin-bottom: 15px; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: #141519;
+            border: 1px solid var(--xf-border);
+            border-radius: 4px;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--xf-accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.12);
+        }
+
+        /* Загрузка фото */
+        .form-group input[type="file"] {
+            cursor: pointer;
+            padding: 8px 10px;
+        }
+
+        .form-group input[type="file"]::file-selector-button {
+            background-color: var(--xf-accent);
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .form-group input[type="file"]::file-selector-button:hover {
+            background-color: var(--xf-accent-hover);
+        }
+
+        .file-hint {
+            font-size: 11px;
+            color: var(--xf-text-muted);
+            margin-top: 5px;
+        }
+
+        .photo-status {
+            font-size: 12px;
+            margin-top: 6px;
+            color: #2ecc71;
+            word-break: break-word;
+        }
+
+        .photo-status.photo-error { color: #e74c3c; }
+
+        .photo-previews {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .photo-thumb {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            border: 1px solid var(--xf-border);
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #141519;
+        }
+
+        .photo-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-remove {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 24px;
+            height: 24px;
+            border: none;
+            border-radius: 50%;
+            background-color: rgba(231, 76, 60, 0.9);
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-remove:hover { background-color: #e74c3c; }
+
+        .photo-clear {
+            display: none;
+            margin-top: 8px;
+            background: transparent;
+            border: 1px solid var(--xf-border);
+            color: var(--xf-text-muted);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .photo-clear:hover { border-color: #e74c3c; color: #e74c3c; }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--xf-accent), #e35e00);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: filter 0.2s, transform 0.1s;
+            width: 100%;
+        }
+
+        .btn-submit:hover { filter: brightness(1.1); }
+        .btn-submit:active { transform: scale(0.99); }
+
+        .alert-status {
+            display: none;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .alert-success { background-color: rgba(46, 204, 113, 0.2); border: 1px solid #2ecc71; color: #2ecc71; }
+        .alert-error { background-color: rgba(231, 76, 60, 0.2); border: 1px solid #e74c3c; color: #e74c3c; }
+
+        /* Сайдбар */
+        .sidebar-block {
+            background-color: var(--xf-block-bg);
+            border: 1px solid var(--xf-border);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar-block h4 {
+            font-size: 14px;
+            color: #fff;
+            border-bottom: 1px solid var(--xf-border);
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-block p {
+            font-size: 13px;
+            color: var(--xf-text-muted);
+            margin-bottom: 4px;
+        }
+
+        .btn-back {
+            background-color: transparent;
+            color: var(--xf-accent);
+            border: 1px solid var(--xf-accent);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: inline-block;
+            transition: background 0.15s;
+        }
+
+        .btn-back:hover { background-color: rgba(255, 107, 0, 0.1); }
+
+        .info-box {
+            background-color: #141519;
+            border-left: 4px solid var(--xf-accent);
+            padding: 12px 18px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .info-box-danger { border-left-color: #e74c3c; background-color: rgba(231, 76, 60, 0.08); }
+        .info-box-money { border-left-color: #2ecc71; background-color: rgba(46, 204, 113, 0.08); }
+
+        /* Виджет ручного онлайна в сайдбаре */
+        .online-widget {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.15), rgba(35, 37, 45, 0.9));
+            border: 1px solid #2ecc71;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(46, 204, 113, 0.15);
+        }
+
+        .online-title {
+            font-size: 12px;
+            color: var(--xf-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .online-count {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2ecc71;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .online-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #2ecc71;
+            animation: pulseDot 1.8s ease-in-out infinite;
+        }
+
+        /* Футер */
+        footer {
+            max-width: 1200px;
+            margin: 10px auto 30px;
+            padding: 18px 15px;
+            text-align: center;
+            color: var(--xf-text-muted);
+            font-size: 12px;
+            border-top: 1px solid var(--xf-border);
+        }
+
+        footer b { color: var(--xf-accent); }
+
+        /* ===== МОБИЛЬНЫЕ СТИЛИ (MEDIA QUERIES) ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 15px;
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .logo-title h1 {
+                font-size: 18px;
+            }
+
+            .server-status {
+                font-size: 12px;
+            }
+
+            .forum-nav {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+
+            .family-hero {
+                padding: 0 10px;
+                margin-top: 15px;
+            }
+
+            .family-hero-inner {
+                padding: 15px;
+            }
+
+            .hero-stats {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .hero-stat {
+                flex: 1;
+                min-width: 70px;
+                padding: 6px 8px;
+            }
+
+            .container {
+                padding: 0 10px;
+                margin: 15px auto;
+                gap: 15px;
+            }
+
+            .thread-item {
+                padding: 12px 15px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .thread-stats {
+                text-align: left;
+                font-size: 11px;
+            }
+
+            .post-body {
+                padding: 15px 12px;
+                flex-direction: column;
+            }
+
+            .post-author {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--xf-border);
+                padding-right: 0;
+                padding-bottom: 12px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                text-align: left;
+            }
+
+            .author-avatar {
+                margin: 0;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            .category-header {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .post-header {
+                padding: 12px 15px;
+            }
+
+            .post-header h2 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка форума -->
+    <header>
+        <div class="logo-area">
+            <div class="server-badge">Server #81 Taganrog</div>
+            <div class="logo-title">
+                <h1>M A K F A solum tu</h1>
+                <span>Официальный форум семьи Black Russia</span>
+            </div>
+        </div>
+        <div class="server-status">
+            Статус сервера: <span class="status-dot-live"></span> <span style="color:#2ecc71; font-weight:bold;">Online</span>
+        </div>
+    </header>
+
+    <!-- Навигация -->
+    <div class="forum-nav">
+        <a onclick="showForumList()">Главная</a> / <span>Сервер #81 Taganrog</span> / <span>Семьи</span> / <span style="color: #fff;">M A K F A solum tu</span>
+    </div>
+
+    <!-- Баннер семьи -->
+    <div class="family-hero" id="forumHero">
+        <div class="family-hero-inner">
+            <div class="family-hero-text">
+                <h2>M A K F A solum tu</h2>
+                <p>Сплочённая семья на сервере #81 Taganrog • Основатель: Sakurako_Makfa</p>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><b>300+</b><span>Участников</span></div>
+                <div class="hero-stat"><b>14</b><span>Слотов авто</span></div>
+                <div class="hero-stat"><b>/fp 373</b><span>База</span></div>
+                <div class="hero-stat"><b id="currentFamilyOnline">45</b><span>Онлайн сейчас</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной контейнер -->
+    <div class="container">
+        
+        <div>
+            <!-- СПИСОК ТЕМ ФОРУМА -->
+            <div id="forumList">
+                <div class="forum-category">
+                    <div class="category-header">
+                        <span>📌 Официальные темы семьи M A K F A solum tu</span>
+                    </div>
+
+                    <div class="thread-item" onclick="openThread('infoThread')">
+                        <div>
+                            <div class="thread-title">
+                                <span class="tag tag-info">ИНФОРМАЦИЯ</span> ℹ️ Информация о семье M A K F A solum tu [/fp 373]
+                            </div>
+                            <div class="thread-meta">Автор: <b>Sakurako_Makfa</b> • Обновлено сегодня</div>
+                        </div>
+                        <div class="thread-stats">Просмотров: 2,850<br>Ответов: 0</div>
+                    </div>
+
+                    <div class="thread-item" onclick="openThread('bonusThread')">
+                        <div>
+                            <div class="thread-title">
+                                <span class="tag tag-money">ПРЕМИИ</span> 💰 Отчеты на премию [ОБЯЗАТЕЛЬНО ПРОЧИТАТЬ!]
+                            </div>
+                            <div class="thread-meta">Автор: <b>Sakurako_Makfa</b> • Выдача 19:00 - 9:00</div>
+                        </div>
+                        <div class="thread-stats">Просмотров: 3,120<br>Ответов: 42</div>
+                    </div>
+
+                    <div class="thread-item" onclick="openThread('autoThread')">
+                        <div>
+                            <div class="thread-title">
+                                <span class="tag tag-important">АВТОПАРК</span> 🏎️ Семейный автопарк (14 слотов)
+                            </div>
+                            <div class="thread-meta">Автор: <b>Sakurako_Makfa</b> • Обновлено сегодня</div>
+                        </div>
+                        <div class="thread-stats">Просмотров: 1,420<br>Ответов: 0</div>
+                    </div>
+
+                    <div class="thread-item" onclick="openThread('suggestThread')">
+                        <div>
+                            <div class="thread-title">
+                                <span class="tag">ОТКРЫТО</span> 💡 Предложения по улучшению семьи
+                            </div>
+                            <div class="thread-meta">Автор: <b>Sakurako_Makfa</b> • Активная тема</div>
+                        </div>
+                        <div class="thread-stats">Просмотров: 890<br>Ответов: 14</div>
+                    </div>
+
+                    <div class="thread-item" onclick="openThread('complaintThread')">
+                        <div>
+                            <div class="thread-title">
+                                <span class="tag tag-danger">ЖАЛОБЫ</span> ⚠️ Жалобы на участников семьи
+                            </div>
+                            <div class="thread-meta">Автор: <b>Sakurako_Makfa</b> • Открыто</div>
+                        </div>
+                        <div class="thread-stats">Просмотров: 1,120<br>Ответов: 8</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ТЕМА 1: ИНФОРМАЦИЯ О СЕМЬЕ -->
+            <div id="infoThread" class="thread-view">
+                <div class="post-header">
+                    <button class="btn-back" onclick="showForumList()">← Назад к списку тем</button>
+                    <h2><span class="tag tag-info">ИНФОРМАЦИЯ</span> ℹ️ Информация о семье M A K F A solum tu</h2>
+                    <div style="font-size: 12px; color: var(--xf-text-muted);">Тема создана: Sakurako_Makfa • Сервер #81 Taganrog</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-author">
+                        <div class="author-avatar">S</div>
+                        <div>
+                            <div class="author-name">Sakurako_Makfa</div>
+                            <div class="author-role">Основатель семьи</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 style="color: var(--xf-accent); margin-bottom: 10px;">Приветствуем на официальном портале семьи M A K F A solum tu!</h3>
+                        <p style="color: var(--xf-text-muted); margin-bottom: 12px;">
+                            Наша семья — это огромная и сплоченная команда на сервере <b>#81 Taganrog</b>, насчитывающая <b style="color: var(--xf-accent);">более 300+ активных участников</b>. Мы ценим дисциплину, взаимовыручку и общий настрой на результат — именно это держит семью на плаву уже долгое время.
+                        </p>
+
+                        <div class="info-box">
+                            <h4 style="color: #fff; margin-bottom: 5px;">👑 Руководство семьи:</h4>
+                            <p style="color: var(--xf-text-muted);">
+                                <b>Основатель семьи:</b> <span style="color: var(--xf-accent);">Sakurako_Makfa</span> — отвечает за общее управление, выдачу премий и решения по спорным вопросам.<br><br>
+                                <b>Основные заместители:</b> <span style="color: #fff;">Evgenei_Robin</span>, <span style="color: #fff;">Taku_Malfa</span>, <span style="color: #fff;">Job_Monopoly</span> — помогают с организацией боевой активности, контролем автопарка и разбором жалоб.
+                            </p>
+                        </div>
+
+                        <div class="info-box">
+                            <h4 style="color: #fff; margin-bottom: 5px;">📍 Семейная база:</h4>
+                            <p style="color: var(--xf-text-muted);">Дом семьи находится по навигатору: <b style="color: var(--xf-accent);">/fp 373</b>. Здесь собирается состав перед выездами, выдаются премии и решаются внутренние вопросы семьи.</p>
+                        </div>
+
+                        <div class="info-box">
+                            <h4 style="color: #fff; margin-bottom: 5px;">🏎️ Семейный автопарк:</h4>
+                            <p style="color: var(--xf-text-muted);">Развиваем собственный автопарк на <b style="color: var(--xf-accent);">14 слотов</b>. Автомобили пополняются и обновляются силами семьи — подробный список техники смотрите в теме «Автопарк».</p>
+                        </div>
+
+                        <div class="info-box">
+                            <h4 style="color: #fff; margin-bottom: 5px;">⚔️ Боевая активность:</h4>
+                            <p style="color: var(--xf-text-muted);">Наш состав <b style="color: var(--xf-accent);">каждый день выезжает на сражения</b> и битвы за вышки. Участие в боёвке поощряется премиями — расценки смотрите в теме «Отчёты на премию».</p>
+                        </div>
+
+                        <div class="info-box">
+                            <h4 style="color: #fff; margin-bottom: 5px;">🤝 Почему стоит быть с нами:</h4>
+                            <p style="color: var(--xf-text-muted);">Большой и активный состав, налаженная система премий, собственный автопарк и ежедневная боевая активность — всё это делает M A K F A solum tu одной из заметных семей на сервере #81 Taganrog.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ТЕМА 2: ОТЧЕТЫ НА ПРЕМИЮ -->
+            <div id="bonusThread" class="thread-view">
+                <div class="post-header">
+                    <button class="btn-back" onclick="showForumList()">← Назад к списку тем</button>
+                    <h2><span class="tag tag-money">ПРЕМИИ</span> 💰 Отчеты на премию [ОБЯЗАТЕЛЬНО ПРОЧИТАТЬ!]</h2>
+                    <div style="font-size: 12px; color: var(--xf-text-muted);">Тема создана: Sakurako_Makfa • Сервер #81 Taganrog</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-author">
+                        <div class="author-avatar">S</div>
+                        <div>
+                            <div class="author-name">Sakurako_Makfa</div>
+                            <div class="author-role">Основатель семьи</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <div class="info-box info-box-danger">
+                            <h3 style="color: #e74c3c; margin-bottom: 8px;">⏰ ПРЕМИИ ВЫДАЮТСЯ С 19:00 ДО 9:00</h3>
+                            <p style="color: #fff; font-size: 13px; font-weight: bold;">
+                                🛑 ТУТ НЕ ОБЩАЕМСЯ! МУТ 1 ДЕНЬ! ЗА ПОВТОРНЫЕ — 3 ДНЯ! ЗА НАМЕРЕННЫЕ — БАН НАВСЕГДА!
+                            </p>
+                            <p style="color: #e74c3c; font-size: 13px; font-weight: bold; margin-top: 8px;">СЮДА КИДАЕМ СТРОГО ЗАЯВКИ НА ПРЕМИЮ!</p>
+                        </div>
+
+                        <div class="info-box info-box-money">
+                            <h4 style="color: #2ecc71; margin-bottom: 8px;">💵 ПРЕЙСКУРАНТ ПРЕМИЙ:</h4>
+                            <ul style="color: var(--xf-text); font-size: 13px; margin-left: 20px;">
+                                <li><b>Вышка:</b> <span style="color: #2ecc71; font-weight: bold;">35k - 5k</span></li>
+                                <li><b>ФГ:</b> <span style="color: #2ecc71; font-weight: bold;">80k - 15k</span></li>
+                                <li><b>ЗБ:</b> <span style="color: #2ecc71; font-weight: bold;">150k - 30k</span></li>
+                                <li><b>50 ящиков с Конта:</b> <span style="color: #2ecc71; font-weight: bold;">20k - 2k</span></li>
+                                <li><b>Инвайт человека в семью:</b> <span style="color: #2ecc71; font-weight: bold;">20k</span></li>
+                                <li><b>Помощь со строем:</b> <span style="color: #2ecc71; font-weight: bold;">50k</span></li>
+                                <li><b>Повышение IQ членам семьи:</b> <span style="color: #2ecc71; font-weight: bold;">10k</span></li>
+                            </ul>
+                        </div>
+
+                        <h4 style="color: #fff; margin-top: 20px; margin-bottom: 10px;">📋 Форма подачи заявки:</h4>
+                        <div id="bonusAlert" class="alert-status"></div>
+
+                        <form id="bonusForm" onsubmit="sendTelegramMessage(event, 'bonus')">
+                            <div class="form-group">
+                                <label>1. Ваш Nick Name:</label>
+                                <input type="text" id="b_nick" required placeholder="Пример: Sakurako_Makfa">
+                            </div>
+                            <div class="form-group">
+                                <label>2. Дата подачи заявки:</label>
+                                <input type="text" id="b_date" required placeholder="Пример: 11.10.2026">
+                            </div>
+                            <div class="form-group">
+                                <label>3. Сколько вам нужно выдать премии:</label>
+                                <input type="text" id="b_amount" required placeholder="Пример: 150.000 рублей">
+                            </div>
+                            <div class="form-group">
+                                <label>4. Доказательства (ссылка с /time):</label>
+                                <input type="url" id="b_proof" placeholder="https://postimg.cc/example">
+                            </div>
+                            <div class="form-group">
+                                <label>5. Или прикрепите фото с /time:</label>
+                                <input type="file" id="b_photos" accept="image/*" multiple onchange="addPhotos('bonus', this)">
+                                <div class="file-hint">Можно выбрать сразу несколько фото или добавлять по одному — они копятся в списке. До 10 фото, каждое до 10 МБ. Нужно указать ссылку или фото (можно и то и другое).</div>
+                                <div class="photo-status" id="b_fileList"></div>
+                                <div class="photo-previews" id="b_previews"></div>
+                                <button type="button" class="photo-clear" id="b_clear" onclick="clearPhotos('bonus')">Очистить все фото</button>
+                            </div>
+                            <button type="submit" id="b_submitBtn" class="btn-submit" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: #0e1a13;">Отправить отчет на премию</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ТЕМА 3: АВТОПАРК -->
+            <div id="autoThread" class="thread-view">
+                <div class="post-header">
+                    <button class="btn-back" onclick="showForumList()">← Назад к списку тем</button>
+                    <h2><span class="tag tag-important">АВТОПАРК</span> 🏎️ Семейный автопарк (14 слотов)</h2>
+                    <div style="font-size: 12px; color: var(--xf-text-muted);">Тема создана: Sakurako_Makfa • Раздел: Автопарк</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-author">
+                        <div class="author-avatar">S</div>
+                        <div>
+                            <div class="author-name">Sakurako_Makfa</div>
+                            <div class="author-role">Основатель семьи</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p style="color: var(--xf-text-muted); margin-bottom: 15px;">Список автомобилей в автопарке семьи (14 слотов):</p>
+                        <div class="auto-grid">
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #1: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #2: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #3: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #4: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #5: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #6: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #7: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #8: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #9: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #10: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #11: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #12: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #13: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                            <div class="auto-card"><div style="font-size:20px;">🚗</div><div style="font-size:13px; font-weight:bold; margin-top:4px;">Слот #14: [Авто]</div><div style="font-size:11px; color:#2ecc71;">В наличии</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ТЕМА 4: ПРЕДЛОЖЕНИЯ -->
+            <div id="suggestThread" class="thread-view">
+                <div class="post-header">
+                    <button class="btn-back" onclick="showForumList()">← Назад к списку тем</button>
+                    <h2><span class="tag">ОТКРЫТО</span> 💡 Предложения по улучшению семьи</h2>
+                    <div style="font-size: 12px; color: var(--xf-text-muted);">Тема создана: Sakurako_Makfa • Раздел: Идеи</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-author">
+                        <div class="author-avatar">S</div>
+                        <div>
+                            <div class="author-name">Sakurako_Makfa</div>
+                            <div class="author-role">Основатель семьи</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p style="color: var(--xf-text-muted); margin-bottom: 15px;">Заполните форму ниже, если у вас есть предложение по улучшению семьи.</p>
+                        <div id="suggestAlert" class="alert-status"></div>
+                        <form id="suggestionForm" onsubmit="sendTelegramMessage(event, 'suggestion')">
+                            <div class="form-group">
+                                <label>1. Ваш NickName:</label>
+                                <input type="text" id="s_nickname" required placeholder="Пример: Sakurako_Makfa">
+                            </div>
+                            <div class="form-group">
+                                <label>2. Связь (VK / Telegram):</label>
+                                <input type="text" id="s_contact" placeholder="@username">
+                            </div>
+                            <div class="form-group">
+                                <label>3. Суть предложения:</label>
+                                <textarea id="s_text" rows="4" required placeholder="Опишите предложение..."></textarea>
+                            </div>
+                            <button type="submit" id="s_submitBtn" class="btn-submit">Отправить в Telegram</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ТЕМА 5: ЖАЛОБЫ -->
+            <div id="complaintThread" class="thread-view">
+                <div class="post-header">
+                    <button class="btn-back" onclick="showForumList()">← Назад к списку тем</button>
+                    <h2><span class="tag tag-danger">ЖАЛОБЫ</span> ⚠️ Подача жалобы на участника семьи</h2>
+                    <div style="font-size: 12px; color: var(--xf-text-muted);">Тема создана: Sakurako_Makfa • Раздел: Жалобы</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-author">
+                        <div class="author-avatar">S</div>
+                        <div>
+                            <div class="author-name">Sakurako_Makfa</div>
+                            <div class="author-role">Основатель семьи</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p style="color: var(--xf-text-muted); margin-bottom: 10px;">В данном разделе вы можете оставить жалобу на любого участника семьи M A K F A solum tu.</p>
+                        <div class="info-box info-box-danger">
+                            <h4 style="color: #e74c3c; margin-bottom: 5px;">📍 Важно:</h4>
+                            <p style="color: var(--xf-text-muted); font-size: 13px;">Скрины/видео с <b>/time</b>! Можно прикрепить фото прямо в форме или загрузить через: <a href="https://postimages.org/" target="_blank" style="color: var(--xf-accent);">postimages.org</a></p>
+                        </div>
+                        <div id="complaintAlert" class="alert-status"></div>
+                        <form id="complaintForm" onsubmit="sendTelegramMessage(event, 'complaint')">
+                            <div class="form-group">
+                                <label>1. Ваш NickName:</label>
+                                <input type="text" id="c_myNick" required placeholder="Пример: Ivan_Ivanov">
+                            </div>
+                            <div class="form-group">
+                                <label>2. NickName нарушителя:</label>
+                                <input type="text" id="c_offenderNick" required placeholder="Пример: Bad_Player">
+                            </div>
+                            <div class="form-group">
+                                <label>3. Суть жалобы:</label>
+                                <textarea id="c_reason" rows="3" required placeholder="Описание..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>4. Время нарушения:</label>
+                                <input type="text" id="c_time" required placeholder="Пример: 11.10.2026 18:00">
+                            </div>
+                            <div class="form-group">
+                                <label>5. Доказательства (/time) — ссылка:</label>
+                                <input type="url" id="c_proof" placeholder="https://postimg.cc/example">
+                            </div>
+                            <div class="form-group">
+                                <label>6. Или прикрепите фото:</label>
+                                <input type="file" id="c_photos" accept="image/*" multiple onchange="addPhotos('complaint', this)">
+                                <div class="file-hint">Можно выбрать сразу несколько фото или добавлять по одному — они копятся в списке. До 10 фото, каждое до 10 МБ. Нужно указать ссылку или фото (можно и то и другое).</div>
+                                <div class="photo-status" id="c_fileList"></div>
+                                <div class="photo-previews" id="c_previews"></div>
+                                <button type="button" class="photo-clear" id="c_clear" onclick="clearPhotos('complaint')">Очистить все фото</button>
+                            </div>
+                            <button type="submit" id="c_submitBtn" class="btn-submit" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">Отправить жалобу</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Сайдбар -->
+        <div>
+            <!-- РУЧНОЙ ВИДЖЕТ ОНЛАЙНА В ИГРЕ -->
+            <div class="online-widget">
+                <div class="online-title">Онлайн семьи в игре</div>
+                <div class="online-count">
+                    <span class="online-dot"></span>
+                    <span id="sidebarFamilyOnline">45</span>
+                    <span style="font-size: 14px; color: var(--xf-text-muted); font-weight: normal;">чел.</span>
+                </div>
+            </div>
+
+            <div class="sidebar-block">
+                <h4>📊 Информация о семье</h4>
+                <p>Сервер: <b>#81 Taganrog</b></p>
+                <p>Семья: <b>M A K F A solum tu</b></p>
+                <p>Основатель: <b style="color: var(--xf-accent);">Sakurako_Makfa</b></p>
+                <p>Участников: <b style="color: #2ecc71;">300+ человек</b></p>
+                <p>Дом: <b style="color: var(--xf-accent);">/fp 373</b></p>
+                <p>Слотов авто: <b>14</b></p>
+            </div>
+            
+            <div class="sidebar-block">
+                <h4>⭐ Основные Заместители</h4>
+                <p style="margin-top: 8px; color: #fff;">• Evgenei_Robin</p>
+                <p style="color: #fff;">• Taku_Malfa</p>
+                <p style="color: #fff;">• Job_Monopoly</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <b>M A K F A solum tu</b> • Server #81 Taganrog • Семья Black Russia
+    </footer>
+
+    <script>
+        // ==========================================
+        // 🟢 РУЧНАЯ НАСТРОЙКА ОНЛАЙНА СЕМЬИ
+        // Замените число ниже на актуальный онлайн:
+        // ==========================================
+        const CURRENT_ONLINE = 45;
+        document.getElementById('currentFamilyOnline').innerText = CURRENT_ONLINE;
+        document.getElementById('sidebarFamilyOnline').innerText = CURRENT_ONLINE;
+
+        function openThread(threadId) {
+            document.getElementById('forumList').style.display = 'none';
+            document.getElementById('forumHero').style.display = 'none';
+            document.getElementById('infoThread').style.display = 'none';
+            document.getElementById('bonusThread').style.display = 'none';
+            document.getElementById('autoThread').style.display = 'none';
+            document.getElementById('suggestThread').style.display = 'none';
+            document.getElementById('complaintThread').style.display = 'none';
+
+            document.getElementById(threadId).style.display = 'block';
+        }
+
+        function showForumList() {
+            document.getElementById('infoThread').style.display = 'none';
+            document.getElementById('bonusThread').style.display = 'none';
+            document.getElementById('autoThread').style.display = 'none';
+            document.getElementById('suggestThread').style.display = 'none';
+            document.getElementById('complaintThread').style.display = 'none';
+            document.getElementById('forumList').style.display = 'block';
+            document.getElementById('forumHero').style.display = 'block';
+        }
+
+        // ==========================================
+        // Настройки Telegram и загрузки фото
+        // ==========================================
+        const BOT_TOKEN = "8871965174:AAEw1LDzSLjMiRfKHaWrn1zV0mOKWD5RuEQ";
+        const CHAT_ID = "8655004916";
+        const MAX_PHOTOS = 10;
+        const MAX_PHOTO_SIZE = 10 * 1024 * 1024;
+        const CAPTION_LIMIT = 1024;
+
+        const photoStore = { bonus: [], complaint: [] };
+        const photoUrls = { bonus: [], complaint: [] };
+        const photoUi = {
+            bonus:     { status: 'b_fileList', previews: 'b_previews', clear: 'b_clear' },
+            complaint: { status: 'c_fileList', previews: 'c_previews', clear: 'c_clear' }
+        };
+
+        function setPhotoStatus(type, text, isError) {
+            const el = document.getElementById(photoUi[type].status);
+            el.innerText = text;
+            el.className = 'photo-status' + (isError ? ' photo-error' : '');
+        }
+
+        function addPhotos(type, input) {
+            const store = photoStore[type];
+            const incoming = Array.from(input.files);
+            const problems = [];
+
+            for (const file of incoming) {
+                if (!file.type.startsWith('image/')) {
+                    problems.push('«' + file.name + '» — не изображение');
+                    continue;
+                }
+                if (file.size > MAX_PHOTO_SIZE) {
+                    problems.push('«' + file.name + '» — больше 10 МБ');
+                    continue;
+                }
+                const isDuplicate = store.some(f =>
+                    f.name === file.name && f.size === file.size && f.lastModified === file.lastModified
+                );
+                if (isDuplicate) continue;
+                if (store.length >= MAX_PHOTOS) {
+                    problems.push('достигнут лимит ' + MAX_PHOTOS + ' фото');
+                    break;
+                }
+                store.push(file);
+            }
+
+            input.value = '';
+            renderPhotos(type);
+
+            if (problems.length) {
+                setPhotoStatus(type, 'Пропущено: ' + problems.join('; '), true);
+            }
+        }
+
+        function removePhoto(type, index) {
+            photoStore[type].splice(index, 1);
+            renderPhotos(type);
+        }
+
+        function clearPhotos(type) {
+            photoStore[type] = [];
+            renderPhotos(type);
+        }
+
+        function renderPhotos(type) {
+            const ui = photoUi[type];
+            const container = document.getElementById(ui.previews);
+            const clearBtn = document.getElementById(ui.clear);
+            const store = photoStore[type];
+
+            photoUrls[type].forEach(url => URL.revokeObjectURL(url));
+            photoUrls[type] = [];
+            container.innerHTML = '';
+
+            store.forEach((file, index) => {
+                const url = URL.createObjectURL(file);
+                photoUrls[type].push(url);
+
+                const thumb = document.createElement('div');
+                thumb.className = 'photo-thumb';
+
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = file.name;
+                img.title = file.name;
+
+                const removeBtn = document.createElement('button');
+                removeBtn.type = 'button';
+                removeBtn.className = 'photo-remove';
+                removeBtn.title = 'Убрать фото';
+                removeBtn.textContent = '×';
+                removeBtn.addEventListener('click', () => removePhoto(type, index));
+
+                thumb.appendChild(img);
+                thumb.appendChild(removeBtn);
+                container.appendChild(thumb);
+            });
+
+            clearBtn.style.display = store.length ? 'inline-block' : 'none';
+            setPhotoStatus(type, store.length ? '📎 Выбрано фото: ' + store.length + ' из ' + MAX_PHOTOS : '', false);
+        }
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+
+        async function telegramRequest(method, options) {
+            const response = await fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/' + method, options);
+            if (!response.ok) {
+                throw new Error('Telegram error: ' + method);
+            }
+            return response;
+        }
+
+        function sendText(text) {
+            return telegramRequest('sendMessage', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: text,
+                    parse_mode: 'HTML'
+                })
+            });
+        }
+
+        async function sendWithPhotos(text, files) {
+            const fitsCaption = text.length <= CAPTION_LIMIT;
+
+            if (!fitsCaption) {
+                await sendText(text);
+            }
+
+            const formData = new FormData();
+            formData.append('chat_id', CHAT_ID);
+
+            if (files.length === 1) {
+                formData.append('photo', files[0]);
+                if (fitsCaption) {
+                    formData.append('caption', text);
+                    formData.append('parse_mode', 'HTML');
+                }
+                return telegramRequest('sendPhoto', { method: 'POST', body: formData });
+            }
+
+            const media = files.map((file, index) => {
+                const item = { type: 'photo', media: 'attach://photo' + index };
+                if (index === 0 && fitsCaption) {
+                    item.caption = text;
+                    item.parse_mode = 'HTML';
+                }
+                return item;
+            });
+            formData.append('media', JSON.stringify(media));
+            files.forEach((file, index) => formData.append('photo' + index, file));
+            return telegramRequest('sendMediaGroup', { method: 'POST', body: formData });
+        }
+
+        function showAlert(statusAlert, message, isError) {
+            statusAlert.className = "alert-status " + (isError ? "alert-error" : "alert-success");
+            statusAlert.innerText = message;
+            statusAlert.style.display = "block";
+            setTimeout(() => { statusAlert.style.display = "none"; }, 6000);
+        }
+
+        async function sendTelegramMessage(event, type) {
+            event.preventDefault();
+
+            let textMessage = "";
+            let submitBtn, statusAlert, formEl;
+            let photos = [];
+
+            if (type === 'bonus') {
+                const nick = escapeHtml(document.getElementById('b_nick').value);
+                const date = escapeHtml(document.getElementById('b_date').value);
+                const amount = escapeHtml(document.getElementById('b_amount').value);
+                const proof = document.getElementById('b_proof').value.trim();
+
+                submitBtn = document.getElementById('b_submitBtn');
+                statusAlert = document.getElementById('bonusAlert');
+                formEl = document.getElementById('bonusForm');
+                photos = photoStore.bonus.slice();
+
+                if (!proof && photos.length === 0) {
+                    showAlert(statusAlert, "Укажите ссылку на доказательства или прикрепите фото.", true);
+                    return;
+                }
+
+                const proofText = (proof ? escapeHtml(proof) : "не указана") +
+                                  (photos.length ? "\n🖼 <b>Фото приложено:</b> " + photos.length + " шт." : "");
+
+                textMessage = `💰 <b>НОВАЯ ЗАЯВКА НА ПРЕМИЮ!</b>\n\n` +
+                              `👤 <b>Игрок:</b> ${nick}\n` +
+                              `📅 <b>Дата:</b> ${date}\n` +
+                              `💵 <b>Сумма:</b> ${amount}\n` +
+                              `🔗 <b>Доказательства (ссылка):</b> ${proofText}`;
+            } else if (type === 'suggestion') {
+                const nickname = escapeHtml(document.getElementById('s_nickname').value);
+                const contact = escapeHtml(document.getElementById('s_contact').value || 'Не указан');
+                const suggestion = escapeHtml(document.getElementById('s_text').value);
+
+                submitBtn = document.getElementById('s_submitBtn');
+                statusAlert = document.getElementById('suggestAlert');
+                formEl = document.getElementById('suggestionForm');
+
+                textMessage = `💡 <b>Новое предложение!</b>\n\n` +
+                              `👤 <b>Игрок:</b> ${nickname}\n` +
+                              `📱 <b>Связь:</b> ${contact}\n` +
+                              `📝 <b>Предложение:</b>\n${suggestion}`;
+            } else if (type === 'complaint') {
+                const myNick = escapeHtml(document.getElementById('c_myNick').value);
+                const offenderNick = escapeHtml(document.getElementById('c_offenderNick').value);
+                const reason = escapeHtml(document.getElementById('c_reason').value);
+                const time = escapeHtml(document.getElementById('c_time').value);
+                const proof = document.getElementById('c_proof').value.trim();
+
+                submitBtn = document.getElementById('c_submitBtn');
+                statusAlert = document.getElementById('complaintAlert');
+                formEl = document.getElementById('complaintForm');
+                photos = photoStore.complaint.slice();
+
+                if (!proof && photos.length === 0) {
+                    showAlert(statusAlert, "Укажите ссылку на доказательства или прикрепите фото.", true);
+                    return;
+                }
+
+                const proofText = (proof ? escapeHtml(proof) : "не указана") +
+                                  (photos.length ? "\n🖼 <b>Фото приложено:</b> " + photos.length + " шт." : "");
+
+                textMessage = `⚠️ <b>НОВАЯ ЖАЛОБА НА УЧАСТНИКА!</b>\n\n` +
+                              `1️⃣ <b>Заявитель:</b> ${myNick}\n` +
+                              `2️⃣ <b>Нарушитель:</b> ${offenderNick}\n` +
+                              `3️⃣ <b>Суть:</b> ${reason}\n` +
+                              `4️⃣ <b>Время:</b> ${time}\n` +
+                              `5️⃣ <b>Доказательства (ссылка):</b> ${proofText}`;
+            }
+
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Отправка...";
+            submitBtn.disabled = true;
+
+            try {
+                if (photos.length) {
+                    await sendWithPhotos(textMessage, photos);
+                } else {
+                    await sendText(textMessage);
+                }
+
+                showAlert(statusAlert, "Успешно отправлено в Telegram!", false);
+                formEl.reset();
+                if (type === 'bonus' || type === 'complaint') {
+                    clearPhotos(type);
+                }
+            } catch (error) {
+                showAlert(statusAlert, "Ошибка при отправке. Попробуйте еще раз.", true);
+            } finally {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
